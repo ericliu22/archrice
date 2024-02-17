@@ -1,0 +1,58 @@
+.bar-right{
+	background-color: $surface0;
+	padding-left: 10px;
+	padding-right: 10px;
+	border-radius: 15px 15px 15px 15px;
+}
+
+.network-text {
+	background-color: $surface0;
+}
+
+.network-icon {
+	padding-left: 15px;
+	font-size: 18px;
+	background-color: $surface0;
+	color: $flamingo;
+}
+
+.clock-text {
+	background-color: $surface0;
+	padding-right: 5px;
+}
+
+.clock-icon {
+	color: $mauve;
+	font-size: 18px;
+	padding-left: 15px;
+	padding-right: 5px;
+	background-color: $surface0;
+}
+
+.battery-text {
+	background-color: $surface0;
+}
+
+.battery-icon {
+	color: $green;
+	font-size: 18px;
+	padding-left: 15px;
+	padding-right: 10px;
+	background-color: $surface0;
+}
+
+
+.volume-icon {
+	padding-left: 15px;
+	padding-right: 5px;
+	color: $yellow;
+}
+
+.notification-icon {
+	padding-left: 5px;
+	padding-right: 5px;
+}
+
+.brightness-icon {
+	padding-right: 5px;
+}

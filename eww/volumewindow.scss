@@ -1,0 +1,32 @@
+.volumewindow {
+	background-color: $surface0;
+	border-radius: 15px;
+}
+
+.volumewindowalt {
+	border-radius: 15px;
+	background-color: $surface0;
+}
+
+.volume-slider-icon {
+	font-size: 28px;
+	padding-left: 10px;
+	padding-right: 10px;
+	color: $yellow;
+}
+
+.volume-controller slider {
+	all: unset;
+}
+.volume-controller scale trough {
+	all: unset;
+	min-height: 10px;
+	min-width: 10px;
+	border-color: $surface0;
+	background-color: $surface0;
+}
+.volume-controller scale trough highlight {
+	all: unset;
+	background-color: $yellow;
+	border-radius: 5px;
+}

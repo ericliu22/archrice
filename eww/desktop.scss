@@ -1,0 +1,24 @@
+.desktop {
+	font-family: "Bodoni* 16 Medium";
+	color: $text;
+	opacity: 0.5;
+	background-color: rgba(0,0,0,0);
+	font-size: 50px;
+}
+
+.desktopalt {
+	font-family: "Bodoni* 16 Medium"; 
+	color: $text;
+	opacity: 0.5;
+	background-color: rgba(0,0,0,0);
+	font-size: 50px;
+}
+
+.location {
+	font-style: italic;
+}
+
+.weathercondition {
+	font-style: italic;
+	font-size: 36px;
+}

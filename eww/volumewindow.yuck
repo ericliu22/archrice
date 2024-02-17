@@ -1,0 +1,34 @@
+(defwindow volumewindow
+	:monitor 1
+	:geometry (geometry :x "0%"
+		:y "20px"
+		:height "35px"
+		:width "0px"
+		:anchor "top right")
+	:stacking "fg"
+	:exclusive false
+	:windowtype "dock"
+	:focusable false
+	:wm-ignore false 
+	(volumecontroller)
+)
+
+(defwidget volumecontroller []
+	(box
+		:class "volume-controller"
+		:space-evenly false
+		(label
+			:text volume-icon
+			:class "volume-slider-icon"
+		)
+		(scale
+			:class "volume-slider"
+			:orientation "horizontal"
+			:width 150
+			:value 50
+			:min 0
+			:max 101
+			:onchange "pactl set-sink-volume @DEFAULT_SINK@ {}%; ${EWW_CMD} update volume={}"
+		)
+	)
+)

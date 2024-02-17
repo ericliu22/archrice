@@ -1,0 +1,34 @@
+(defwindow brightnesswindow
+	:monitor 1
+	:geometry (geometry :x "0%"
+		:y "20px"
+		:height "35px"
+		:width "0px"
+		:anchor "top right")
+	:stacking "fg"
+	:exclusive false
+	:windowtype "dock"
+	:focusable false
+	:wm-ignore false 
+	(brightnesscontroller)
+)
+
+(defwidget brightnesscontroller []
+	(box
+		:class "brightness-controller"
+		:space-evenly false
+		(label
+			:text brightness-icon
+			:class "brightness-slider-icon"
+		)
+		(scale
+			:class "brightness-slider"
+			:orientation "horizontal"
+			:width 150
+			:value 50
+			:min 0
+			:max 101
+			:onchange "brightnessctl set {}%"
+		)
+	)
+)

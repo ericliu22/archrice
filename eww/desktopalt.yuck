@@ -1,0 +1,15 @@
+
+(defwindow desktopalt
+	:monitor 0
+	:geometry (geometry :x "20%"
+		:y "0px"
+		:height "35px"
+		:width "100px"
+		:anchor "left center")
+	:stacking "bg"
+	:exclusive false
+	:windowtype "dock"
+	:focusable false
+	:wm-ignore false
+	(weather)
+)

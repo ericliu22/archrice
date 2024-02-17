@@ -1,0 +1,253 @@
+(defpoll networkname
+	:interval "5s"
+	'scripts/getnetwork')
+(defpoll volume 
+	:interval "5s"
+	'pactl get-sink-volume @DEFAULT_SINK@ | grep -o "..[0-9]%" | grep -o -m 1 "..[0-9]"')
+(defpoll mic 
+	:interval "5s" 
+	'pactl get-source-volume @DEFAULT_SOURCE@ | grep -o "..[0-9]%" | grep -o -m 1 "..[0-9]"')
+(defpoll brightness 
+	:interval "1s" 
+	'brightnessctl get')
+(defvar brightnessMax
+	852)
+(defpoll volume-icon
+	:interval "1s" 
+	'scripts/geticon volume')
+(defpoll mic-icon
+	:interval "1s" 
+	'scripts/geticon mic')
+(defpoll brightness-icon
+	:interval "5s" 
+	'scripts/geticon brightness')
+(defpoll networkicon 
+	:interval "5s"
+	'scripts/geticon network')
+(defpoll battery
+	:interval "5s"
+	'upower -i /org/freedesktop/UPower/devices/battery_BAT0 | grep percentage | grep -o "..[(0-9)]%"')
+(defpoll batteryicon
+	:interval "5s"
+	'scripts/geticon battery')
+(defpoll time
+	:interval "1s"
+	'date +"%a %d/%m/%y %H:%M"')
+(deflisten workspaces 
+	:initial "[]" 
+	"bash scripts/get-workspaces.bash")
+(deflisten current_workspace 
+	:initial "1" 
+	"bash scripts/get-active-workspace.bash")
+(defvar volume-visible false)
+(defpoll artist 
+	:interval "5s"
+	"playerctl -p spotify metadata artist")
+(defpoll title 
+	:interval "5s"
+	"playerctl -p spotify metadata title")
+
+(defwindow bar
+	:monitor 1
+	:geometry (geometry :x "0%"
+		:y "0px"
+		:height "35px"
+		:width "100%"
+		:anchor "top center")
+	:stacking "fg"
+	:exclusive true
+	:wm-ignore false
+	(box
+		:halign "fill"
+		:space-evenly "true"
+		:orientation "horizontal"
+		(bar-left)
+		(bar-center)
+		(bar-right)
+	)
+)
+
+(defwidget bar-left []
+	(box
+		:space-evenly "false"
+		:halign "start"
+		:class "bar-left"
+		:orientation "horizontal"
+		(workspaces)
+	)
+)
+
+(defwidget workspaces []
+	(eventbox 
+		:onscroll "bash ~/.config/eww/scripts/change-active-workspace {} ${current_workspace}" 
+		:class "workspaces-widget"
+		(box 
+		:space-evenly true
+		:halign "start"
+			(label
+				:text "${workspaces}${current_workspace}" 
+				:visible false 
+			)
+			(for workspace in workspaces
+				(eventbox 
+					:onclick "hyprctl dispatch workspace ${workspace.id}"
+					(box 
+						:class "workspace-entry ${workspace.id == current_workspace ? "current" : ""} ${workspace.windows > 0 ? "occupied" : "empty"}"
+						(label 
+							:text "${workspace.id == current_workspace ? "" : ""}"
+						)
+					)
+				)
+			)
+		)
+	)
+)
+
+(defwidget bar-center []
+	(revealer
+		:transition "slideright"
+		:reveal "${title == "" ? false : true}"
+		(box
+			:space-evenly "false"
+			:halign "center"
+			:class "bar-center"
+			:orientation "horizontal"
+			(spotify)
+		)
+	)
+)
+
+(defwidget spotify []
+	(eventbox
+		:onclick "scripts/ewwstartup spotify"
+		(box
+			:halign "center"
+			:space-evenly "false"
+			:class "spotify"
+			(label
+				:class "spotify-icon"
+				:text " "
+			)
+			(label 
+				:text "${artist} - ${title}" 
+				:limit-width 20
+			)
+		)
+	)
+)
+
+(defwidget bar-right []
+		(box
+			:halign "end"
+			:space-evenly false
+			:class "bar-right"
+			(notification)
+			(network)
+			(volume)
+			(battery)
+			(clock)
+		)
+)
+
+(defwidget network []
+	(box
+		:space-evenly "false"
+		:halign "end"
+		(label
+			:halign "end"
+			:class "network-icon"
+			:text networkicon
+		)
+		(label
+			:halign "end"
+			:class "network-text"
+			:text networkname
+			:limit-width 20
+		)
+	)
+)
+
+(defwidget clock []
+	(box
+		:halign "end"
+		:space-evenly "false"
+		(label
+			:halign "end"
+			:class "clock-icon"
+			:text ""
+			:limit-width 1
+		)
+		(label
+			:halign "end"
+			:class "clock-text"
+			:limit-width 18
+			:text time
+		)
+	)
+)
+
+(defwidget battery []
+	(box
+		:halign "end"
+		(label
+			:halign "end"
+			:class "battery-icon"
+			:text batteryicon
+		)
+		(label
+			:halign "end"
+			:class "battery-text"
+			:text battery
+		)
+	)
+)
+
+(defwidget volume []
+	(box
+		:halign "end"
+		:space-evenly "false"
+		(eventbox
+			:class "volume-button"
+			:onclick "scripts/ewwstartup volume"
+			(label
+				:text volume-icon
+				:class "volume-icon"
+			)
+		)
+		(label
+			:text "${volume}%"
+		)
+	)
+)
+
+(defwidget brightness []
+	(box
+		:halign "end"
+		(eventbox
+			:class "brightness-button"
+			:onclick "./scripts/ewwstartup brightness"
+			(label
+				:halign "end"
+				:class "brightness-icon"
+				:text brightness-icon 
+			)
+		)
+		(label
+			:halign "end"
+			:class "brightness"
+			:text "${round((brightness/brightnessMax * 100),0)}%"
+		)
+	)
+)
+
+(defwidget notification []
+	(eventbox
+		:onclick "sleep 0.1; swaync-client -t -sw"
+		:halign "end"
+		(label
+			:text ""
+			:class "notification-icon"
+		)
+	)
+)
+

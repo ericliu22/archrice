@@ -1,0 +1,40 @@
+(defpoll location
+	:interval "60s"
+	"curl wttr.in/?format='%l'")
+(defpoll weathercondition
+	:interval "60s"
+	"curl wttr.in/?format='%C+%c'")
+(defpoll weatherjson
+	:interval "60s"
+	"curl wttr.in/?format=j1")
+
+(defwindow desktop
+	:monitor 1
+	:geometry (geometry :x "20%"
+		:y "0px"
+		:height "35px"
+		:width "100px"
+		:anchor "left center")
+	:stacking "bg"
+	:exclusive false
+	:windowtype "dock"
+	:focusable false
+	:wm-ignore false
+	(weather)
+)
+
+(defwidget weather []
+	(box
+		:space-evenly "false"
+		:orientation "vertical"
+		(label
+			:text "${location}"
+			:class "location"
+		)
+		(label
+			:halign "start"
+			:text "${weathercondition}${weatherjson.current_condition[0].temp_C}°C"
+			:class "weathercondition"
+		)
+	)
+)

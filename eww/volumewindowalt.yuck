@@ -1,0 +1,15 @@
+
+(defwindow volumewindowalt
+	:monitor 0
+	:geometry (geometry :x "125px"
+		:y "20px"
+		:height "35px"
+		:width "0"
+		:anchor "top right")
+	:stacking "fg"
+	:exclusive false
+	:windowtype "dock"
+	:focusable false
+	:wm-ignore false
+	(volumecontroller)
+)

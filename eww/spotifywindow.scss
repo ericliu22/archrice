@@ -1,0 +1,55 @@
+.spotifywindow {
+	font-family: "JetBrainsMono NF Semibold";
+	color: $text;
+	opacity: 0.9;
+	border-radius: 15px 15px 15px 15px;
+	background-color: $base;
+	border-style: solid;
+	border-width: 2px;
+	border-color: $surface0;
+}
+
+.spotifywindowalt {
+	font-family: "JetBrainsMono NF Semibold";
+	color: $text;
+	opacity: 0.9;
+	border-radius: 15px 15px 15px 15px;
+	background-color: $base;
+	border-style: solid;
+	border-width: 2px;
+	border-color: $surface0;
+}
+
+.image {
+	border-radius: 15px 15px 15px 15px;
+	margin-left: 10px;
+	margin-right: 10px;
+	margin-top: 10px;
+	margin-bottom: 10px;
+}
+
+.songinfo {
+
+	margin-right: 10px;
+}
+
+.seeker {
+	margin-left: 2px;
+	margin-right: 2px;
+	margin-bottom: 2px;
+	background-color: $crust;
+	border-radius: 0px 0px 15px 15px;
+}
+
+.seeker trough highlight {
+	color: rgba(0,0,0,0);
+}
+
+.playercontrol {
+	font-size: 25px;
+}
+
+.title {
+	font-style: italic;
+	font-size: 25px;
+}

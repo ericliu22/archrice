@@ -1,0 +1,14 @@
+(defwindow brightnesswindowalt
+	:monitor 0
+	:geometry (geometry :x "200px"
+		:y "20px"
+		:height "35px"
+		:width "0px"
+		:anchor "top right")
+	:stacking "fg"
+	:exclusive false
+	:windowtype "dock"
+	:focusable false
+	:wm-ignore false 
+	(brightnesscontroller)
+)

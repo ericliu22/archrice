@@ -1,0 +1,29 @@
+.bar {
+	font-family: "JetBrainsMono NF Medium";
+	font-size: 12pt;
+	color: $text;
+	background-color: rgba(0,0,0,0);
+}
+
+.baralt {
+	font-family: "JetBrainsMono NF Medium";
+	font-size: 11pt;
+	color: $text;
+	background-color: rgba(0,0,0,0);
+}
+
+
+.bar-center {
+	background-color: $surface0;
+	border-radius: 15px 15px 15px 15px;
+}
+
+.spotify-icon {
+	color: $pink;
+}
+
+.spotify {
+	font-style: italic;
+	padding-left: 15px;
+	padding-right: 15px;
+}
