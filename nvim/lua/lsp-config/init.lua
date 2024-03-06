@@ -5,7 +5,9 @@ lspconfig.lua_ls.setup{}
 lspconfig.asm_lsp.setup{}
 lspconfig.tsserver.setup{}
 lspconfig.gopls.setup{}
+lspconfig.dockerls.setup{}
 lspconfig.cssls.setup{}
+lspconfig.html.setup{}
 lspconfig.bashls.setup{
 	filetypes={"zsh","sh","bash"}
 }

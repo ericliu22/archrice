@@ -28,5 +28,4 @@ require("lazy").setup({
 	"epwalsh/obsidian.nvim",
 	"nvim-lua/plenary.nvim",
 	'nvim-telescope/telescope.nvim',
-	'luk400/vim-jukit',
 })

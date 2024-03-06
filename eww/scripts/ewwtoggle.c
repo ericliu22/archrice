@@ -16,15 +16,13 @@ int main(int argc, char** argv) {
 		return 0;
 	}
 
-	sprintf(alt,"*%s",argv[1]);
-	fp = popen("eww windows", "r");
+	fp = popen("eww active-windows", "r");
 	popenError(fp);
 	while (fgets(buffer, sizeof(buffer), fp) != NULL) {
-		sscanf(buffer, "%[^\t\n]", secondaryBuffer);
+		sscanf(buffer, "%[^:]", secondaryBuffer);
+		printf("BUFFER: %s", buffer);
+		printf("SECONDARYBUFFER: %s", secondaryBuffer);
 		if (strcmp(argv[1],secondaryBuffer) == 0) {
-			break;
-		}
-		if (strcmp(alt,secondaryBuffer) == 0) {
 			isOpen = 1;
 			break;
 		}

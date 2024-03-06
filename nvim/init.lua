@@ -14,6 +14,5 @@ require("feline-config")
 require("mappings")
 require("telescope")
 require("xbase").setup()
-require("vim-jukit")
 
 vim.cmd.colorscheme "catppuccin"
