@@ -3,13 +3,13 @@
 	"scripts/spotify-image")
 (defpoll seek
 	:interval "0.5s"
-	"playerctl -p spotify position")
+	"playerctl position | head -n 1")
 (defpoll length
 	:interval "1s"
-	"playerctl -p spotify metadata mpris:length")
+	"playerctl metadata mpris:length | head -n 1")
 (defpoll status
 	:interval "1s"
-	"playerctl -p spotify status")
+	"playerctl status | head -n 1")
 
 (defwindow spotifywindow
 	:monitor 1
@@ -40,7 +40,6 @@
 				(image
 					:class "image"
 					:path spotify-image
-					:image-width 150
 					:image-height 150
 				)
 			)
@@ -87,7 +86,7 @@
 		)
 		(eventbox
 			:class "playpause"
-			:onclick "playerctl -p spotify play-pause"
+			:onclick "playerctl play-pause"
 			(label
 				:text "${status == "Paused" ? "" : ""}"
 			)

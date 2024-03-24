@@ -1,0 +1,35 @@
+(defwindow volumehover
+	:monitor 1
+	:geometry (geometry :x "0%"
+		:y "0px"
+		:height "0px"
+		:width "0px"
+		:anchor "center")
+	:stacking "fg"
+	:exclusive false
+	:windowtype "dock"
+	:focusable false
+	:wm-ignore false 
+	(volumehoverwidget)
+)
+
+(defwidget volumehoverwidget []
+	(box
+		:class "volume-hover"
+		:space-evenly true
+		:orientation "vertical"
+		(label
+			:class "volume-hover-icon"
+			:text volume-icon
+		)
+		(scale
+			:class "volume-hover-slider"
+			:orientation "horizontal"
+			:width 200
+			:value volume
+			:min 0
+			:max 101
+			:onchange "pactl set-sink-volume @DEFAULT_SINK@ {}%; ${EWW_CMD} update volume={}"
+		)
+	)
+)

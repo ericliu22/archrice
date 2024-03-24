@@ -18,8 +18,8 @@
 		:class "volume-controller"
 		:space-evenly false
 		(label
-			:text volume-icon
 			:class "volume-slider-icon"
+			:text volume-icon
 		)
 		(scale
 			:class "volume-slider"

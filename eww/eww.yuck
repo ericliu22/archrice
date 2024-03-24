@@ -8,6 +8,8 @@
 (include "/home/ericliu/.config/eww/volumewindowalt.yuck")
 (include "/home/ericliu/.config/eww/brightnesswindow.yuck")
 (include "/home/ericliu/.config/eww/brightnesswindowalt.yuck")
+(include "/home/ericliu/.config/eww/volumehover.yuck")
+(include "/home/ericliu/.config/eww/volumehoveralt.yuck")
 
 (defwindow powermenu-window 
            :monitor 1

@@ -55,4 +55,14 @@ int main(int argc, char** argv) {
 		}
 		return 0;
 	}
+
+	if (strcmp(argv[1], "volumehover") == 0) {
+		if (monitors > 1) {
+			system("~/scripts/ewwtoggle volumehover");
+			system("~/scripts/ewwtoggle volumehoveralt");
+		} else {
+			system("~/scripts/ewwtoggle volumehoveralt");
+		}
+		return 0;
+	}
 }

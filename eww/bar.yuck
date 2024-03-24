@@ -42,10 +42,10 @@
 (defvar volume-visible false)
 (defpoll artist 
 	:interval "5s"
-	"playerctl -p spotify metadata artist")
+	"playerctl metadata artist")
 (defpoll title 
 	:interval "5s"
-	"playerctl -p spotify metadata title")
+	"playerctl metadata title")
 
 (defwindow bar
 	:monitor 1
@@ -213,9 +213,6 @@
 				:text volume-icon
 				:class "volume-icon"
 			)
-		)
-		(label
-			:text "${volume}%"
 		)
 	)
 )

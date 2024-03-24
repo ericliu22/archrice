@@ -1,0 +1,14 @@
+(defwindow volumehoveralt
+	:monitor 0
+	:geometry (geometry :x "0%"
+		:y "0px"
+		:height "0px"
+		:width "0px"
+		:anchor "center")
+	:stacking "fg"
+	:exclusive false
+	:windowtype "dock"
+	:focusable false
+	:wm-ignore false 
+	(volumehoverwidget)
+)

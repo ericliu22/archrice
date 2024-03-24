@@ -7,11 +7,11 @@ updateEww() {
 
 case $1 in
 	next)
-		playerctl -p spotify next
+		playerctl next
 		updateEww & /home/ericliu/.config/eww/scripts/spotify-image
 		;;
 	previous)
-		playerctl -p spotify previous
+		playerctl previous
 		updateEww & /home/ericliu/.config/eww/scripts/spotify-image
 		;;
 	*)

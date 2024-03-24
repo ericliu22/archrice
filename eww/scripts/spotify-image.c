@@ -9,7 +9,7 @@ int main() {
 	char command[1000];
 
 
-	fp = popen("playerctl -p spotify metadata mpris:artUrl", "r");
+	fp = popen("playerctl metadata mpris:artUrl", "r");
 	popenError(fp);
 	while (fgets(buffer, sizeof(buffer), fp) != NULL) {
 	}

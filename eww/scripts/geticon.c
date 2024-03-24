@@ -86,13 +86,11 @@ int main(int argc, char** argv) {
 	}
 
 	if (strcmp(argv[1], "network") == 0) {
-		fp = popen("nmcli -f NAME c show --active", "r");
+		fp = popen("nmcli -g NAME c show --active", "r");
 		char secondaryBuffer[50];
 		popenError(fp);
-		for (int i=0;i<2;i++) {
-			fgets(buffer, sizeof(buffer), fp);
-		}
-		sscanf(buffer, "%s", secondaryBuffer);
+		fgets(buffer, sizeof(buffer), fp);
+		sscanf(buffer, "%[^\t\n]", secondaryBuffer);
 		if (strcmp("lo",secondaryBuffer) == 0 || strcmp("docker0",secondaryBuffer) == 0) {
 			printf(" \n");
 		} else {

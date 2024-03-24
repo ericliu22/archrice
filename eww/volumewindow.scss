@@ -9,6 +9,7 @@
 }
 
 .volume-slider-icon {
+	font-family: "JetBrainsMono NF SemiBold";
 	font-size: 28px;
 	padding-left: 10px;
 	padding-right: 10px;
@@ -18,14 +19,14 @@
 .volume-controller slider {
 	all: unset;
 }
-.volume-controller scale trough {
+.volume-controller trough {
 	all: unset;
 	min-height: 10px;
 	min-width: 10px;
 	border-color: $surface0;
 	background-color: $surface0;
 }
-.volume-controller scale trough highlight {
+.volume-controller highlight {
 	all: unset;
 	background-color: $yellow;
 	border-radius: 5px;
