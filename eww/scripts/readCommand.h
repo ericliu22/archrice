@@ -3,8 +3,8 @@
 
 void popenError(FILE* fp) {
 	if (fp == NULL) {
-		printf("Error running popen\n");
-		exit(0);
+		fprintf(stderr,"Error running popen\n");
+		exit(EXIT_FAILURE);
 	}
 }
 

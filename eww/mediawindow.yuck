@@ -1,0 +1,102 @@
+(defpoll media-image
+	:interval "5s"
+	"scripts/media-image")
+(defpoll seek
+	:interval "0.5s"
+	"playerctl position | head -n 1")
+(defpoll length
+	:interval "1s"
+	"playerctl metadata mpris:length | head -n 1")
+(defpoll status
+	:interval "1s"
+	"playerctl status | head -n 1")
+
+(defwindow mediawindow
+	:monitor 1
+	:geometry (geometry :x "0%"
+		:y "45px"
+		:height "35px"
+		:width "100px"
+		:anchor "top center")
+	:stacking "fg"
+	:exclusive false
+	:windowtype "dock"
+	:focusable false
+	:wm-ignore false
+	(miniplayer)
+)
+
+
+(defwidget miniplayer []
+	(box
+		:orientation "vertical"
+		:space-evenly "false"
+		(box
+			:class "miniplayer"
+			:halign "fill"
+			:space-evenly "false"
+			:orientation "horizontal"
+			(box
+				(image
+					:class "image"
+					:path media-image
+					:image-height 150
+				)
+			)
+			(box
+				:class "songinfo"
+				:orientation "vertical"
+				:space-evenly "true"
+				(label
+					:text title
+					:class "title"
+					:limit-width 30
+				)
+				(label
+					:text artist
+					:class "artist"
+					:limit-width 30
+				)
+				(playercontrol)
+			)
+		)
+		(scale
+			:class "seeker"
+			:value seek
+			:width "200"
+			:min "0"
+			:max {length / 1000000}
+			:onchange "playerctl -p media position {}"
+		)
+	)
+)
+
+(defwidget playercontrol []
+	(box
+		:width "360"
+		:valign "end"
+		:orientation "horizontal"
+		:class "playercontrol"
+		(eventbox
+			:class "previous"
+			:onclick "scripts/mediactl.bash previous"
+			(label
+				:text ""
+			)
+		)
+		(eventbox
+			:class "playpause"
+			:onclick "playerctl play-pause"
+			(label
+				:text "${status == "Paused" ? "" : ""}"
+			)
+		)
+		(eventbox
+			:class "skip"
+			:onclick "scripts/mediactl.bash next"
+			(label
+				:text ""
+			)
+		)
+	)
+)

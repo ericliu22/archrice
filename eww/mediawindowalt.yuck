@@ -1,0 +1,14 @@
+(defwindow mediawindowalt
+	:monitor 0
+	:geometry (geometry :x "0%"
+		:y "45px"
+		:height "35px"
+		:width "100px"
+		:anchor "top center")
+	:stacking "fg"
+	:exclusive false
+	:windowtype "dock"
+	:focusable false
+	:wm-ignore false
+	(miniplayer)
+)

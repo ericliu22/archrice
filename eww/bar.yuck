@@ -112,20 +112,20 @@
 			:halign "center"
 			:class "bar-center"
 			:orientation "horizontal"
-			(spotify)
+			(media)
 		)
 	)
 )
 
-(defwidget spotify []
+(defwidget media []
 	(eventbox
-		:onclick "scripts/ewwstartup spotify"
+		:onclick "scripts/ewwstartup media"
 		(box
 			:halign "center"
 			:space-evenly "false"
-			:class "spotify"
+			:class "media"
 			(label
-				:class "spotify-icon"
+				:class "media-icon"
 				:text " "
 			)
 			(label 

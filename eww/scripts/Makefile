@@ -1,7 +1,4 @@
-objects: getstats geticon getnetwork spotify-image spotify-check ewwstartup ewwtoggle
-
-getstats: getstats.c
-	gcc -lm -o getstats getstats.c
+objects: geticon getnetwork media-image ewwstartup
 
 geticon: geticon.c
 	gcc -o  geticon geticon.c
@@ -9,14 +6,8 @@ geticon: geticon.c
 getnetwork: getnetwork.c
 	gcc -o getnetwork getnetwork.c
 
-spotify-image: spotify-image.c
-	gcc -o spotify-image spotify-image.c
-
-spotify-check: spotify-check.c
-	gcc -o spotify-check spotify-check.c
+media-image: media-image.c
+	gcc -o media-image media-image.c
 
 ewwstartup: ewwstartup.c
 	gcc -o ewwstartup ewwstartup.c
-
-ewwtoggle: ewwtoggle.c
-	gcc -o ewwtoggle ewwtoggle.c

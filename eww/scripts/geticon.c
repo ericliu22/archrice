@@ -24,7 +24,7 @@ int main(int argc, char** argv) {
 		}
 
 		int volume;
-		readCommand(fp,"pactl get-sink-volume @DEFAULT_SINK@ | grep -o '..[0-9]%' | grep -o -m 1 '..[0-9]'",buffer);
+		readCommand(fp,"pactl get-sink-volume @DEFAULT_SINK@ | awk 'sub(/%/,\"\") {print $5}'",buffer);
 		sscanf(buffer, "%d", &volume);
 
 		if (volume == 0) {
@@ -58,7 +58,7 @@ int main(int argc, char** argv) {
 	}
 
 	if (strcmp(argv[1], "battery") == 0) {
-		fp = popen("upower -i `upower -e | grep BAT` | grep state","r");
+		fp = popen("upower -i /org/freedesktop/UPower/devices/battery_BAT0 | grep state","r");
 		popenError(fp);
 		while (fgets(buffer, sizeof(buffer), fp) != NULL) {
 		}
@@ -69,7 +69,7 @@ int main(int argc, char** argv) {
 			printf("\n");
 			return 0;
 		}
-		readCommand(fp,"upower -i /org/freedesktop/UPower/devices/battery_BAT0 | grep percentage | grep -o '..[(0-9)]%'",buffer);
+		readCommand(fp,"upower -i /org/freedesktop/UPower/devices/battery_BAT0 | grep percentage | awk '{print $2}'",buffer);
 		int battery;
 		sscanf(buffer, "%d%%", &battery);
 
