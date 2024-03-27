@@ -10,7 +10,7 @@ int main(int argc, char** argv) {
 
 	if (argc != 2) {
 		fprintf(stderr,"Usage:\n	ewwstartup <window>\n");
-		fprintf(stderr, "Avaliable windows:\n	bar, media, desktop, volumehover, volumewindow");
+		fprintf(stderr, "Avaliable windows:\n	bar, media, desktop, volumehover, volumewindow, powermenu");
 		exit(EXIT_FAILURE);
 	}
 	readCommand(fp,"hyprctl -j monitors | jq length",buffer);
@@ -62,6 +62,16 @@ int main(int argc, char** argv) {
 			toggle("volumehoveralt");
 		} else {
 			toggle("volumehoveralt");
+		}
+		return 0;
+	}
+
+	if (strcmp(argv[1], "powermenu") == 0) {
+		if (monitors > 1) {
+			toggle("powermenu-window");
+			toggle("powermenu-windowalt");
+		} else {
+			toggle("powermenu-windowalt");
 		}
 		return 0;
 	}

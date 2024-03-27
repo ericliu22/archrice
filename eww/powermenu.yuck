@@ -1,0 +1,69 @@
+(defwindow powermenu-window
+           :monitor 1
+           :geometry (geometry :x "0px"
+                               :y "10px"
+                               :width "500px"
+                               :height "0px"
+                               :anchor "top center"
+                     )
+           :stacking "fg"
+           :windowtype "normal"
+           :wm-ignore true
+           (powermenu-window)
+)
+
+(defwidget powermenu-window []
+           (box :space-evenly false
+                :orientation "v"
+                :class "powermenu-widget"
+                (box :space-evenly true
+                     :orientation "h"
+                     :class "powermenu-window-button-area"
+                     (powermenu-lockscreen-button)
+                     (powermenu-logout-button)
+                     (powermenu-poweroff-button)
+                     (powermenu-reboot-button)
+                )
+           )
+)
+
+
+(defwidget powermenu-lockscreen-button []
+          (eventbox 
+			:onclick "notify-send lockscreen"
+			:class "powermenu-lockscreen-button"
+		(label 
+			:text ""
+		)
+          )
+)
+
+(defwidget powermenu-logout-button []
+          (eventbox 
+		:onclick "hyprctl dispatch exit"
+		:class "powermenu-logout-button"
+		(label 
+			:text "󰍃"
+		)
+          )
+)
+
+(defwidget powermenu-poweroff-button []
+          (eventbox 	    
+	  	:onclick "shutdown -P now"
+		:class "powermenu-poweroff-button"
+		(label 
+			:text ""
+		)
+          )
+)
+
+(defwidget powermenu-reboot-button []
+          (eventbox 
+                :onclick "reboot"
+		:class "powermenu-reboot-button"
+		(label 
+			:text " "
+		)
+          )
+)

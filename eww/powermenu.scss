@@ -1,0 +1,60 @@
+.powermenu-poweroff-button {
+	border-radius: 5px;
+	padding-top: 5px;
+	padding-bottom: 5px;
+	background-color: #FF0000;
+	color: $mauve;
+	font-family: "JetbrainsMono Nerd Font";
+	font-size: 25px;
+}
+
+.powermenu-lockscreen-button {
+	border-radius: 5px;
+	padding-top: 5px;
+	padding-bottom: 5px;
+	color: $mauve;
+	background-color: #FF0000;
+	font-weight: bold;
+	text-shadow: none;
+	box-shadow: none;
+	font-family: "JetbrainsMono Nerd Font";
+	font-size: 25px;
+}
+
+.powermenu-logout-button {
+	padding-top: 5px;
+	border-radius: 5px;
+	background-color: #FF0000;
+	color: $mauve;
+	font-family: "JetbrainsMono Nerd Font";
+	font-size: 25px;
+}
+
+.powermenu-reboot-button {
+	border-radius: 5px;
+	background-color: #FF0000;
+	color: $mauve;
+	font-weight: bold;
+	text-shadow: none;
+	box-shadow: none;
+	font-family: "JetbrainsMono Nerd Font";
+	font-size: 25px;
+}
+
+.powermenu-window {
+	background-color: $mantle;
+	border: none;
+	border-bottom: 8px solid $surface0;
+	color: $red;
+	padding: 20px;
+	border-radius: 10px;
+}
+
+.powermenu-windowalt {
+	background-color: $mantle;
+	border: none;
+	border-bottom: 8px solid $surface0;
+	color: $red;
+	padding: 20px;
+	border-radius: 10px;
+}

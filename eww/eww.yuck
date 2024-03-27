@@ -10,17 +10,5 @@
 (include "/home/ericliu/.config/eww/brightnesswindowalt.yuck")
 (include "/home/ericliu/.config/eww/volumehover.yuck")
 (include "/home/ericliu/.config/eww/volumehoveralt.yuck")
-
-(defwindow powermenu-window 
-           :monitor 1
-           :geometry (geometry :x "0%"
-                               :y "20px"
-                               :width "90%"
-                               :height "30px"
-                               :anchor "top center")
-           :stacking "overlay"
-           :reserve (struts :distance "40px" :side "top")
-           :windowtype "dock"
-           :wm-ignore false
-  "example content")
-
+(include "/home/ericliu/.config/eww/powermenu.yuck")
+(include "/home/ericliu/.config/eww/powermenualt.yuck")

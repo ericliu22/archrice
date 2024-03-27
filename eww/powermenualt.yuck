@@ -1,0 +1,13 @@
+(defwindow powermenu-windowalt
+           :monitor 0
+           :geometry (geometry :x "0px"
+                               :y "10px"
+                               :width "500px"
+                               :height "0px"
+                               :anchor "top center"
+                     )
+           :stacking "fg"
+           :windowtype "normal"
+           :wm-ignore true
+           (powermenu-window)
+)
