@@ -11,6 +11,9 @@ There are other dependencies which I felt were unnecessary to include and thus o
 * swaync
 * jq
 * socat
-* spotify (maybe)
 * python3
+* hyprland
+* eww (elkowars wacky widgets)
+* kitty
+* rofi
 
