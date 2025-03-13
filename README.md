@@ -7,11 +7,10 @@ This is mostly for myself. Most of the configs are based around Catppuccin-mocha
 There are other dependencies which I felt were unnecessary to include and thus omitted:
 * Variety
 * PulseAudio
-* playerctl
+* CMake
 * swaync
 * jq
 * socat
-* python3
 * hyprland
 * eww (elkowars wacky widgets)
 * kitty
