@@ -1,9 +1,9 @@
 (defpoll networkname
 	:interval "5s"
-	'scripts/getnetwork')
+	'scripts/get_network')
 (defpoll volume 
 	:interval "5s"
-	'pactl get-sink-volume @DEFAULT_SINK@ | grep -o "..[0-9]%" | grep -o -m 1 "..[0-9]"')
+	'scripts/get_volume')
 (defpoll mic 
 	:interval "5s" 
 	'pactl get-source-volume @DEFAULT_SOURCE@ | grep -o "..[0-9]%" | grep -o -m 1 "..[0-9]"')
@@ -14,22 +14,22 @@
 	852)
 (defpoll volume-icon
 	:interval "1s" 
-	'scripts/geticon volume')
+	'scripts/get_volume_icon')
 (defpoll mic-icon
 	:interval "1s" 
-	'scripts/geticon mic')
+	'echo ')
 (defpoll brightness-icon
 	:interval "5s" 
-	'scripts/geticon brightness')
+	'echo ')
 (defpoll networkicon 
 	:interval "5s"
-	'scripts/geticon network')
-(defpoll battery
+	'scripts/get_network_icon')
+(defpoll current_battery
 	:interval "5s"
-	'upower -i /org/freedesktop/UPower/devices/battery_BAT0 | grep percentage | grep -o "..[(0-9)]%"')
+	'scripts/get_battery')
 (defpoll batteryicon
 	:interval "5s"
-	'scripts/geticon battery')
+	'scripts/get_battery_icon')
 (defpoll time
 	:interval "1s"
 	'date +"%a %d/%m/%y %H:%M"')
@@ -119,7 +119,7 @@
 
 (defwidget media []
 	(eventbox
-		:onclick "scripts/ewwstartup media"
+		:onclick "scripts/eww_toggle mediawindowalt"
 		(box
 			:halign "center"
 			:space-evenly "false"
@@ -130,7 +130,7 @@
 			)
 			(label 
 				:text "${artist} - ${title}" 
-				:limit-width 20
+				:limit-width 25
 			)
 		)
 	)
@@ -197,7 +197,7 @@
 		(label
 			:halign "end"
 			:class "battery-text"
-			:text battery
+			:text current_battery
 		)
 	)
 )
@@ -208,7 +208,7 @@
 		:space-evenly "false"
 		(eventbox
 			:class "volume-button"
-			:onclick "scripts/ewwstartup volume"
+			:onclick "scripts/eww_toggle volumehoveralt"
 			(label
 				:text volume-icon
 				:class "volume-icon"
@@ -222,7 +222,7 @@
 		:halign "end"
 		(eventbox
 			:class "brightness-button"
-			:onclick "./scripts/ewwstartup brightness"
+			:onclick "./scripts/eww_toggle brightnesshoveralt"
 			(label
 				:halign "end"
 				:class "brightness-icon"

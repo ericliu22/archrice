@@ -1,0 +1,56 @@
+[
+{
+  "directory": "/home/ericliu/.config/eww/scripts",
+  "command": "/usr/bin/cc  -I/home/ericliu/.config/eww/scripts -D_REENTRANT -o CMakeFiles/volume_fetcher.dir/volume_fetcher.c.o -c /home/ericliu/.config/eww/scripts/volume_fetcher.c",
+  "file": "/home/ericliu/.config/eww/scripts/volume_fetcher.c",
+  "output": "CMakeFiles/volume_fetcher.dir/volume_fetcher.c.o"
+},
+{
+  "directory": "/home/ericliu/.config/eww/scripts",
+  "command": "/usr/bin/cc    -o CMakeFiles/eww_toggle.dir/eww_toggle.c.o -c /home/ericliu/.config/eww/scripts/eww_toggle.c",
+  "file": "/home/ericliu/.config/eww/scripts/eww_toggle.c",
+  "output": "CMakeFiles/eww_toggle.dir/eww_toggle.c.o"
+},
+{
+  "directory": "/home/ericliu/.config/eww/scripts",
+  "command": "/usr/bin/cc  -I/usr/include/glib-2.0 -I/usr/lib/glib-2.0/include -I/usr/include/sysprof-6 -I/usr/include/gio-unix-2.0 -I/usr/include/libmount -I/usr/include/blkid -I/usr/include/libnm -pthread -o CMakeFiles/get_network.dir/get_network.c.o -c /home/ericliu/.config/eww/scripts/get_network.c",
+  "file": "/home/ericliu/.config/eww/scripts/get_network.c",
+  "output": "CMakeFiles/get_network.dir/get_network.c.o"
+},
+{
+  "directory": "/home/ericliu/.config/eww/scripts",
+  "command": "/usr/bin/cc    -o CMakeFiles/get_battery.dir/get_battery.c.o -c /home/ericliu/.config/eww/scripts/get_battery.c",
+  "file": "/home/ericliu/.config/eww/scripts/get_battery.c",
+  "output": "CMakeFiles/get_battery.dir/get_battery.c.o"
+},
+{
+  "directory": "/home/ericliu/.config/eww/scripts",
+  "command": "/usr/bin/cc  -I/home/ericliu/.config/eww/scripts  -o CMakeFiles/get_volume.dir/get_volume.c.o -c /home/ericliu/.config/eww/scripts/get_volume.c",
+  "file": "/home/ericliu/.config/eww/scripts/get_volume.c",
+  "output": "CMakeFiles/get_volume.dir/get_volume.c.o"
+},
+{
+  "directory": "/home/ericliu/.config/eww/scripts",
+  "command": "/usr/bin/cc  -I/usr/include/glib-2.0 -I/usr/lib/glib-2.0/include -I/usr/include/sysprof-6 -I/usr/include/gio-unix-2.0 -I/usr/include/libmount -I/usr/include/blkid -I/usr/include/libnm -pthread -o CMakeFiles/get_network_icon.dir/get_network_icon.c.o -c /home/ericliu/.config/eww/scripts/get_network_icon.c",
+  "file": "/home/ericliu/.config/eww/scripts/get_network_icon.c",
+  "output": "CMakeFiles/get_network_icon.dir/get_network_icon.c.o"
+},
+{
+  "directory": "/home/ericliu/.config/eww/scripts",
+  "command": "/usr/bin/cc  -I/home/ericliu/.config/eww/scripts  -o CMakeFiles/get_volume_icon.dir/get_volume_icon.c.o -c /home/ericliu/.config/eww/scripts/get_volume_icon.c",
+  "file": "/home/ericliu/.config/eww/scripts/get_volume_icon.c",
+  "output": "CMakeFiles/get_volume_icon.dir/get_volume_icon.c.o"
+},
+{
+  "directory": "/home/ericliu/.config/eww/scripts",
+  "command": "/usr/bin/cc    -o CMakeFiles/get_battery_icon.dir/get_battery_icon.c.o -c /home/ericliu/.config/eww/scripts/get_battery_icon.c",
+  "file": "/home/ericliu/.config/eww/scripts/get_battery_icon.c",
+  "output": "CMakeFiles/get_battery_icon.dir/get_battery_icon.c.o"
+},
+{
+  "directory": "/home/ericliu/.config/eww/scripts",
+  "command": "/usr/bin/cc  -I/usr/include/glib-2.0 -I/usr/lib/glib-2.0/include -I/usr/include/sysprof-6 -I/usr/include/gio-unix-2.0 -I/usr/include/libmount -I/usr/include/blkid -pthread -o CMakeFiles/media_image.dir/media_image.c.o -c /home/ericliu/.config/eww/scripts/media_image.c",
+  "file": "/home/ericliu/.config/eww/scripts/media_image.c",
+  "output": "CMakeFiles/media_image.dir/media_image.c.o"
+}
+]

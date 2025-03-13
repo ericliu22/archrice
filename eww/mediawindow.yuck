@@ -1,6 +1,6 @@
 (defpoll media-image
 	:interval "5s"
-	"scripts/media-image")
+	"scripts/media_image")
 (defpoll seek
 	:interval "0.5s"
 	"playerctl position | head -n 1")
@@ -66,7 +66,7 @@
 			:width "200"
 			:min "0"
 			:max {length / 1000000}
-			:onchange "playerctl -p media position {}"
+			:onchange "playerctl position {}"
 		)
 	)
 )

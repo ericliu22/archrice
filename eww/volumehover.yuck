@@ -29,7 +29,7 @@
 			:value volume
 			:min 0
 			:max 101
-			:onchange "pactl set-sink-volume @DEFAULT_SINK@ {}%; ${EWW_CMD} update volume={}"
+			:onchange "./scripts/get_volume; ${EWW_CMD} update volume={}"
 		)
 	)
 )
