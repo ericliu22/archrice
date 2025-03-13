@@ -10,6 +10,7 @@ pkg_check_modules(GLIB REQUIRED glib-2.0)
 pkg_check_modules(GIO REQUIRED gio-unix-2.0)
 pkg_check_modules(LIBNM REQUIRED libnm)
 pkg_check_modules(PULSEAUDIO REQUIRED libpulse)
+pkg_check_modules(WAYLAND_CLIENT REQUIRED wayland-client)
 
 # Create a common library for the PulseAudio volume fetching code.
 # Assume you have volume_fetcher.h and volume_fetcher.c in your source directory.
@@ -30,6 +31,9 @@ add_executable(get_network_icon get_network_icon.c)
 add_executable(get_volume_icon get_volume_icon.c)
 add_executable(get_battery_icon get_battery_icon.c)
 add_executable(media_image media_image.c)
+
+target_include_directories(eww_toggle PRIVATE ${WAYLAND_CLIENT_INCLUDE_DIRS})
+target_link_libraries(eww_toggle PRIVATE ${WAYLAND_CLIENT_LIBRARIES})
 
 # Include directories from pkg-config
 target_include_directories(get_network PRIVATE

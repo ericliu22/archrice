@@ -119,7 +119,7 @@
 
 (defwidget media []
 	(eventbox
-		:onclick "scripts/eww_toggle mediawindowalt"
+		:onclick "scripts/eww_toggle mediawindow"
 		(box
 			:halign "center"
 			:space-evenly "false"
@@ -208,7 +208,7 @@
 		:space-evenly "false"
 		(eventbox
 			:class "volume-button"
-			:onclick "scripts/eww_toggle volumehoveralt"
+			:onclick "scripts/eww_toggle volumehover"
 			(label
 				:text volume-icon
 				:class "volume-icon"
@@ -222,7 +222,7 @@
 		:halign "end"
 		(eventbox
 			:class "brightness-button"
-			:onclick "./scripts/eww_toggle brightnesshoveralt"
+			:onclick "./scripts/eww_toggle brightnesshover"
 			(label
 				:halign "end"
 				:class "brightness-icon"
